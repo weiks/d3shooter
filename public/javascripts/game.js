@@ -16,7 +16,21 @@ var Shooter = function () {
 		scope.initAccuracy();
 		scope.initHealthbar();
 		
-		d3.select('button').on('click', function () {
+		//d3.select('button').on('click', function () {
+
+// Widget callbacks
+var receiveMessage = function(event) {
+  if (event.origin !== 'https://dev.pocketfulofquarters.com') {
+    return
+  }
+
+  var data = JSON.parse(event.data)
+  if (data.error) {
+    // data.message
+  } else if (data.cancel) {
+    // user canceled transfer
+  } else {
+
 			scope.start();
 
 			d3.select('.game-over').remove();
@@ -26,7 +40,11 @@ var Shooter = function () {
 				.duration(600)
 					.style('height', '0px')
 					.style('opacity', 0.1);
-		});
+		//});
+ }
+}
+// receive message
+window.addEventListener('message', receiveMessage, false)
 	});
 
 	scope.start = function () {

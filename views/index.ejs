@@ -63,25 +63,6 @@
     data-app-key="1s4x2v8h3b9ollw1pt2afj8knheamvmvv"
     charset="utf-8"></script>
 <script>
-// Widget callbacks
-var receiveMessage = function(event) {
-  if (event.origin !== 'https://dev.pocketfulofquarters.com') {
-    return
-  }
-
-  var data = JSON.parse(event.data)
-  if (data.error) {
-    // data.message
-  } else if (data.cancel) {
-    // user canceled transfer
-  } else {
-    console.log(data.txId);
-    console.log( data.requestId);
-  }
-}
-// receive message
-window.addEventListener('message', receiveMessage, false)
-</script>
 <p>
                     Simple shooter game implemented using fabulous
                     <a target="_blank" href="http://d3js.org/">d3.js</a> library.
