@@ -18,7 +18,7 @@ app.use(logger('dev'));
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(process.env.PWD + '/htdocs'));
+app.use(express.static(process.env.PWD + '/'));
 
 app.use('/', routes);
 
