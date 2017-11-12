@@ -1,3 +1,5 @@
+process.env.PWD = process.cwd()
+
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -15,6 +17,8 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(process.env.PWD + '/htdocs'));
 
 app.use('/', routes);
 
